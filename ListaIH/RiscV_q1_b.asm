@@ -1,4 +1,5 @@
 # A, B and C has to be in a range between 0 and 99
+# For each input A, B and C, insert its values in the first 3 lines in the keyboard
 addi x7, x0, 48 #used to obtain int number from character
 addi x8, x0, 15 #used to check if the number has finished
 addi x2, x0, 0
