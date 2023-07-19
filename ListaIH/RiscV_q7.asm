@@ -1,4 +1,11 @@
 #each led change has a minor delay 
+#temperature sensor has to be on A0
+#Left red: 3 
+#Right red: 9
+#Left yellow: 5
+#Right yellow: 10
+#Left green: 6
+#Right green: 11
 lb x10, 0(x0)
 sb x10, 1030(x0)
 addi x3, x0, 307
