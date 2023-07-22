@@ -51,6 +51,7 @@ savenum:
 	addi x2, x0, 0
 	addi x6, x6, -1
 	add x5, x5, x10
+	beq x11, x0, return
 	addi x11, x11, -1
 	beq x6, x0, return
 
