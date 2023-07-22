@@ -3,7 +3,7 @@
 addi x7, x0, 48 #used to obtain int number from character
 addi x8, x0, 15 #used to check if the number has finished
 addi x2, x0, 0
-addi x9, x0, 2 #comparator with flag 
+
 
 
 addi x6, x0, -1 #flag that indicates the number of digits
@@ -49,17 +49,19 @@ savenum:
 	lb x11, 0(x2) #load dez in
 	addi x5, x0, 0
 	addi x2, x0, 0
-	addi x6, x0, -1
+	addi x6, x6, -1
 	add x5, x5, x10
 	addi x11, x11, -1
-	beq x6, x9, savedez
+	beq x6, x0, return
 
 savedez:
 	addi x5, x5, 10
 	addi x11, x11, -1
 	bge x11, x0, savedez
+	
+return:
+	addi x6, x0, -1
 	jalr x0, 0(x1)
-
 end:
 	addi x14, x14, 48
 	sb x14, 1024(x0)
