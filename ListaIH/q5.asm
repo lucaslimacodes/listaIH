@@ -4,6 +4,8 @@ addi x2, x0, 0 # stack pointer
 addi x18, x0, 0 # multiplier
 addi x1, x0, 0 # return address
 
+# FALTA ADICIONAR A FUNC QUE COLOCA O RESULTADO NA TELA(QUASE TERMINANDO)
+
 
 input:
 lb x10, 1025(x0) # load do buffer
