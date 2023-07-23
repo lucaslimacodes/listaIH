@@ -41,6 +41,9 @@ main:
 	addi x19, x15, 0 # mov inp 2
 	jal x1, mult
 	addi x15, x20, 0 # mov prod to x15
+	addi x19, x15, 0
+	jal x1, int_to_string
+	jal x1, print_num
 	beq x0, x0, fim
 
 mult: 
@@ -103,11 +106,75 @@ stoi:
 	stoi_end:
 	jalr x0, 0(x1) 
 
-	
+print_num:
+lb x10, 0(x2)
+addi x2, x2, 8
+addi x21, x21, -1
+sb x10, 1024(x0)
+bge x21, x0, print_num
+jalr x0, 0(x1)
+
+
+int_to_string:
+addi x21, x0, -1 # init counter
+
+its_loop:
+addi x18, x0, 10 #divisor to 10
+blt x19, x18, end_its
+addi x2, x2, -8
+sw x1, 0(x2)
+jal x1, div
+lw x1, 0(x2)
+addi x2, x2, 8
+
+addi x19, x19, 48 # num to char
+addi x21, x21, 1 # inc counter
+addi x2, x2, -8 
+sb x19, 0(x2)
+addi x19, x20, 0 # quotient to dividend
+beq x0, x0, its_loop
+
+end_its:
+addi x19, x19, 48 # num to char
+addi x21, x21, 1 # inc counter
+addi x2, x2, -8 # inc sp
+sb x19, 0(x2) # stores char
+jalr x0, 0(x1)
+
+
+
+
+
+div:
+addi x20, x0, 0 # set quocient 0
+addi x17, x18, 0 # save divisor val
+blt x19, x18, end_div # if divisor > divid
+
+div_init:
+slli x18, x18, 1 # sl divisor 
+blt x18, x19, div_init
+beq x18, x19, div_init
+srli x18, x18, 1 # undo
+
+dividing:
+blt x18, x17, end_div
+blt x19, x18, nop_div # if divisor > dividend
+sub x19, x19, x18 # if divisor < dividend
+slli x20, x20, 1
+addi x20, x20, 1 # like concat 1
+srli x18, x18, 1 # sr divisor
+beq x0, x0, dividing
+
+nop_div:
+srli x18, x18, 1 # sr divisor
+slli x20, x20, 1 # concat quocient 0
+beq x0, x0, dividing
+
+end_div:
+	jalr x0, 0(x1)	
 	
 
 
 
 fim:
 	halt
-
