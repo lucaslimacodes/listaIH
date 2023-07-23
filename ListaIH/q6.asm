@@ -23,7 +23,7 @@ lb x10, 0(x2) #loads num
 addi x2, x2, 8 # pop stack
 addi x24, x10, 0 # load num
 jal x1, fact
-addi x25, x23, 0 # add result
+add x25, x23, x25 # add result
 addi x11, x11, -1 # dec counter
 bge x11, x0, get_num
 beq x0, x0, mostrar_res
