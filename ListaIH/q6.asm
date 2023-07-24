@@ -1,3 +1,6 @@
+# Input: apenas escreva um número(sem space ou enter)
+# Por favor, coloque um clock mais alto. O código pode demorar cerca de 1000 eventos para executar completamente
+
 addi x11, x0, -1 # contador
 addi x16, x0, 16 # verificacao
 addi x21, x0, 32 # verificacao 2(space)
