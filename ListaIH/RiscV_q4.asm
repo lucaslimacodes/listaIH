@@ -1,3 +1,5 @@
+#please, insert inputs of both players in the first 2 lines in the keyboard
+
 addi x11, x0, 0 #this reg will receive player1's points
 addi x12, x0, 0 #this reg will receive player2's points
 addi x8, x0, 16 #used to check if string has finished
