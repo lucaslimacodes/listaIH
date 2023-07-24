@@ -1,3 +1,8 @@
+# Para o input, separe os dois inteiros com um espaço na mesma linha
+# Exemplo: 123 456
+# Para cada novo input, reset o código
+# Favor, colocar um clock mais alto. O código pode demorar cerca de 800 eventos para terminar
+
 addi x11, x0, -1 # contador
 addi x16, x0, 16 # verificacao
 addi x21, x0, 32 # verificacao 2(space)
